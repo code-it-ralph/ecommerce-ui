@@ -75,7 +75,6 @@ export default function Register() {
                             email: email,
                             password: password1,
                             mobileNo: mobileNo
-
                         })
 
                     })
@@ -130,9 +129,7 @@ export default function Register() {
         else {
             setIsActive(false);
         }
-    }, [firstName, lastName, age, gender, email, mobileNo, password1, password2])
-
-
+    }, [firstName, lastName, age, gender, email, mobileNo, password1, password2]);
 
 
     return (

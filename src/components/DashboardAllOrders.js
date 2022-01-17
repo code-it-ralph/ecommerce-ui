@@ -1,10 +1,3 @@
-
-import { Container, Card, Button, Row, Col } from 'react-bootstrap';
-import { useParams, useHistory, Link } from 'react-router-dom';
-// to consume a user details upon hitting enroll button
-// to share values from your components to other components
-import UserContext from '../UserContext';
-import Swal from 'sweetalert2';
 import { Fragment, useEffect, useState } from 'react';
 import DashboardAllOrdersCard from './DashboardAllOrdersCard';
 
@@ -25,9 +18,8 @@ export default function GetAllOrders() {
 
                 setProducts(
                     data.map(product => {
-                        console.log(product)
                             return (
-                                <DashboardAllOrdersCard key={product._id} productProp={product} ordersProp={product.orders} />
+                                <DashboardAllOrdersCard key={product._id} productProp={product} />
                             );
                         })
                     

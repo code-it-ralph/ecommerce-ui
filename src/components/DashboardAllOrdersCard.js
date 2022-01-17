@@ -6,22 +6,26 @@ import { useState, useEffect } from 'react';
 
 export default function DashboardAllOrdersCard({ productProp }) {
 
-    const { _id, orders, description } = productProp;
+    const [orderedItems, setOrderedItems] = useState([]);
+    const { _id, orders } = productProp;
     
-   
-
-
+    
+    useEffect(() => {
+        orders.map(items => {
+            setOrderedItems(items)
+        })
+    })
 
     return (
         <Container className="library-container">
             <Card>
                 <Card.Body>
-                    <Card.Title>{_id}</Card.Title>
-                    <Card.Subtitle>{ }</Card.Subtitle>
-                    <Card.Text>{ }</Card.Text>
-                    {/* <Card.Subtitle>Price:</Card.Subtitle>
-                <Card.Text>Php {price}</Card.Text> */}
-                    {/* <Link className='productBtn btn btn-light mx-2' to={`/updateproduct/${_id}`}>Update</Link> */}
+                    <Card.Title>{ orderedItems.productName }</Card.Title>
+                    <Card.Subtitle>Ordered by: { orderedItems.userId }</Card.Subtitle>
+                    <Card.Text>Quantity: { orderedItems.quantity }</Card.Text>
+                    <Card.Text>Total Amount: Php{ orderedItems.totalAmount }</Card.Text>
+                    <Card.Text>Purchased On: { orderedItems.purchasedOn }</Card.Text>
+                    
                 </Card.Body>
             </Card>
         </Container>

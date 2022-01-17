@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { Container, Card, Button, Row, Col } from 'react-bootstrap';
+import { Container, Card, Button, Row, Col, Form } from 'react-bootstrap';
 import { useParams, useHistory, Link } from 'react-router-dom';
 // to consume a user details upon hitting enroll button
 // to share values from your components to other components
@@ -23,7 +23,9 @@ export default function CourseView() {
     const [quantity, setQuantity] = useState()
 
     // an Enroll Function to enroll a user to a specific course
-    const buy = () => {
+    function buy(e) {
+
+        e.preventDefault();
 
         fetch(`https://murmuring-citadel-59250.herokuapp.com/ecommerce/users/checkout`, {
             method: "POST",
@@ -74,23 +76,33 @@ export default function CourseView() {
     }, [productId]);
 
     return (
-        <Container className='mt-5' style={{height: "80vh"}}>
+        <Container className='mt-5' style={{ height: "80vh" }}>
             <Row>
                 <Col lg={{ span: 6, offset: 3 }}>
                     <Card className="mb-5">
                         <Card.Body className="text-center">
                             <Card.Title>{name}</Card.Title>
-                            <Card.Subtitle>Description:</Card.Subtitle>
+                            <Card.Text></Card.Text>
                             <Card.Text>{description}</Card.Text>
-                            <Card.Subtitle>Price:</Card.Subtitle>
-                            <Card.Text>Php {`${productId}`}</Card.Text>
+                            <Card.Subtitle>Price: Php{`${price}`}</Card.Subtitle>
+                            <Card.Text> </Card.Text>
+                            <Form.Group className="mb-4" controlId="quantiy">
+                                <Form.Label>Quantity</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter Quantity"
+                                    value={quantity}
+                                    onChange={e => setQuantity(e.target.value)}
+                                    required
+                                />
+                            </Form.Group>
                             {
                                 user.id !== null ?
-                                    <Button className='productBtn' variant="secondary" onClick={() => buy()}>Add to Cart</Button>
-                                :
+                                    <Button className='productBtn' type="submit" variant="secondary" onSubmit={(e) => buy(e)}>Add to Cart</Button>
+                                    :
                                     <Link className='productBtn btn btn-secondary btn-block' to="/login">Login to Purchase</Link>
                             }
-                            
+
                         </Card.Body>
                     </Card>
                 </Col>

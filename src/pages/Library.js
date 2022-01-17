@@ -17,11 +17,13 @@ export default function Book() {
             // Sets the "products" state to map the data retrieved from the fetch request into several "ProductCard" components
             setProducts(
                 data.map(product => {
+                    
                     return (
                         <ProductCard key={product._id} productProp={product}/>
                     );
                 })
             )
+        
         })
     }, []);
 

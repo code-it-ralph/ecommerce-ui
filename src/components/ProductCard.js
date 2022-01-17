@@ -12,7 +12,7 @@ export default function ProductCard({ productProp }) {
 
     return (
         <Container className="library-container">
-        <Card>
+        <Card style={{border: "0px"}}>
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Subtitle>{description}</Card.Subtitle>

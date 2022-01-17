@@ -10,7 +10,7 @@ export default function Book() {
 
     // Retrieve the product from the database upon initial render of the "Product" component
     useEffect(() => {
-        fetch('http://localhost:4001/ecommerce/products/')
+        fetch('https://murmuring-citadel-59250.herokuapp.com/ecommerce/products/')
         .then(res => res.json())
         .then(data => {
 

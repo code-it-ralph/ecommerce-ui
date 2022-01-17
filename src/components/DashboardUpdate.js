@@ -42,7 +42,7 @@ export default function ProductUpdate() {
     useEffect(() => {
         console.log(productId);
 
-        fetch(`https://peaceful-peak-58446.herokuapp.com/ecommerce/products/${productId}`)
+        fetch(`https://murmuring-citadel-59250.herokuapp.com/ecommerce/products/${productId}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -61,7 +61,7 @@ export default function ProductUpdate() {
         e.preventDefault();
 
 
-        fetch(`https://peaceful-peak-58446.herokuapp.com/ecommerce/products/${productId}`, {
+        fetch(`https://murmuring-citadel-59250.herokuapp.com/ecommerce/products/${productId}`, {
             method: 'PUT',
             headers: {
                 'Authorization': `Bearer ${token}`,

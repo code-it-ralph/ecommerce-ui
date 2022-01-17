@@ -15,7 +15,7 @@ export default function GetAllOrders() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch(`https://peaceful-peak-58446.herokuapp.com/ecommerce/users/orders`, {
+        fetch(`https://murmuring-citadel-59250.herokuapp.com/ecommerce/users/orders`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }

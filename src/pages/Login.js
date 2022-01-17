@@ -26,7 +26,7 @@ export default function Login(props) {
     function authenticate(e) {
         e.preventDefault();
 
-        fetch('http://localhost:4001/ecommerce/users/login', {
+        fetch('https://murmuring-citadel-59250.herokuapp.com/ecommerce/users/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -66,7 +66,7 @@ export default function Login(props) {
     }
 
     const retrieveUserDetails = (token) => {
-        fetch('http://localhost:4001/ecommerce/users/details', {
+        fetch('https://murmuring-citadel-59250.herokuapp.com/ecommerce/users/details', {
             headers: {
                 Authorization: `Bearer ${token}`
             }

@@ -38,7 +38,7 @@ export default function Register() {
 
         e.preventDefault();
 
-        fetch('http://localhost:4001/ecommerce/users/checkemail', {
+        fetch('https://murmuring-citadel-59250.herokuapp.com/ecommerce/users/checkemail', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -62,7 +62,7 @@ export default function Register() {
 
                 }
                 else {
-                    fetch('http://localhost:4001/ecommerce/users/register', {
+                    fetch('https://murmuring-citadel-59250.herokuapp.com/ecommerce/users/register', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'

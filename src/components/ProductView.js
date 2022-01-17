@@ -25,7 +25,7 @@ export default function CourseView() {
     // an Enroll Function to enroll a user to a specific course
     const buy = () => {
 
-        fetch(`https://peaceful-peak-58446.herokuapp.com/ecommerce/users/checkout`, {
+        fetch(`https://murmuring-citadel-59250.herokuapp.com/ecommerce/users/checkout`, {
             method: "POST",
             headers: {
                 "Content-type": "application/json",
@@ -62,7 +62,7 @@ export default function CourseView() {
     useEffect(() => {
         console.log(productId);
 
-        fetch(`https://peaceful-peak-58446.herokuapp.com/ecommerce/products/${productId}`)
+        fetch(`https://murmuring-citadel-59250.herokuapp.com/ecommerce/products/${productId}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);

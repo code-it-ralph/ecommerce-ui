@@ -21,7 +21,7 @@ export default function Cart() {
 
     // Get user's orders based on user token
     useEffect(() => {
-        fetch('https://peaceful-peak-58446.herokuapp.com/ecommerce/users/my_orders', {
+        fetch('https://murmuring-citadel-59250.herokuapp.com/ecommerce/users/my_orders', {
             headers: {
                 Authorization: `Bearer ${localStorageToken}`
             }

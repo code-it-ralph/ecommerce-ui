@@ -10,7 +10,7 @@ export default function DashboardProducts() {
 
     // Retrieve the product from the database upon initial render of the "Product" component
     useEffect(() => {
-        fetch('https://peaceful-peak-58446.herokuapp.com/ecommerce/products/')
+        fetch('https://murmuring-citadel-59250.herokuapp.com/ecommerce/products/')
         .then(res => res.json())
         .then(data => {
 

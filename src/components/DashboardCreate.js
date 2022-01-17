@@ -35,7 +35,7 @@ export default function CreateProduct() {
         e.preventDefault();
 
 
-        fetch('http://localhost:4001/ecommerce/products/', {
+        fetch('https://murmuring-citadel-59250.herokuapp.com/ecommerce/products/', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`,

@@ -2,7 +2,6 @@
 import { useState, useEffect, useContext, Fragment } from 'react';
 
 /* Components */
-import OrderDetails from '../components/OrderDetails';
 import Header from '../components/CartHeader';
 import Main from '../components/CartMain';
 import Basket from '../components/CartBasket';
@@ -18,7 +17,7 @@ export default function Cart() {
 
     // Get user's orders based on user token
     useEffect(() => {
-        fetch('http://localhost:4001/ecommerce/users/my_orders', {
+        fetch('https://quiet-stream-93181.herokuapp.com/ecommerce/users/my_orders', {
             headers: {
                 Authorization: `Bearer ${localStorageToken}`
             }
@@ -41,6 +40,7 @@ export default function Cart() {
 
     // Code Block for Cart
     const { orders } = userOrders;
+    //const { products } = data;
     const [cartItems, setCartItems] = useState([]);
     const onAdd = (product) => {
         const exist = cartItems.find((x) => x.productId === product.productId);

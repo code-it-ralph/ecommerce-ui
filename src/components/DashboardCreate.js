@@ -35,7 +35,7 @@ export default function CreateProduct() {
         e.preventDefault();
 
 
-        fetch('https://murmuring-citadel-59250.herokuapp.com/ecommerce/products/', {
+        fetch('https://quiet-stream-93181.herokuapp.com/ecommerce/products/', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`,

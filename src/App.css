@@ -80,6 +80,15 @@ body {
   text-align: center;
 }
 
+#home-link {
+  text-decoration: none;
+  color: white;
+  background-color: #5F4B32;
+  border: 1px;
+  border-radius: 15px;
+  padding: 10px;
+}
+
 .submitBtn {
   width: 100%;
   background-color: #5F4B32;
@@ -106,14 +115,17 @@ body {
   width: 50%;
 }
 
+.dashboard-header {
+  padding-top: 20px;
+  padding-left: 25px;
+  background-color: rgba(252, 247, 247, 0.37);
+  border-radius: 25px;
+}
+
 .header-title {
   font-size: 2rem;
 }
-/* .card-btn {
-  margin: auto;
-  background-color: #5F4B32;
-  opacity: 0.8;
-} */
+
 
 .cart-table {
   border: 2px solid #5F4B32;

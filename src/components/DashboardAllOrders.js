@@ -25,9 +25,9 @@ export default function GetAllOrders() {
 
                 setProducts(
                     data.map(product => {
-                        console.log(product.orders)
+                        console.log(product)
                             return (
-                                <DashboardAllOrdersCard key={product._id} productProp={[product]} />
+                                <DashboardAllOrdersCard key={product._id} productProp={product} ordersProp={product.orders} />
                             );
                         })
                     

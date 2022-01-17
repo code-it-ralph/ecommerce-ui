@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 import { useState, useEffect, useContext } from 'react';
 import { Redirect, useHistory, useParams } from 'react-router-dom';
 import UserContext from '../UserContext';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 

@@ -61,7 +61,7 @@ export default function ProductUpdate() {
         e.preventDefault();
 
 
-        fetch(`http://localhost:4001/ecommerce/products/${productId}`, {
+        fetch(`https://quiet-stream-93181.herokuapp.com/ecommerce/products/${productId}`, {
             method: 'PUT',
             headers: {
                 'Authorization': `Bearer ${token}`,

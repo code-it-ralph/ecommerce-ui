@@ -25,22 +25,20 @@ export default function Cart() {
             .then(res => res.json())
             .then(data => {
                 // localStorage.setItem('anokaba', JSON.stringify(data));
-                // console.log(data)
-                
-                    setUserOrders(data)
-                
-            }, []);
+                // console.log([data])
+                setUserOrders(data)
+            })
         // end
-    });
+    }, [userOrders]);
     // console.log(userOrders)
-    // console.log(localStorage.getItem('anokaba'))
+    
     
     
     
 
     // Code Block for Cart
     const { orders } = userOrders;
-    //const { products } = data;
+    const { products } = data;
     const [cartItems, setCartItems] = useState([]);
     const onAdd = (product) => {
         const exist = cartItems.find((x) => x.productId === product.productId);
@@ -73,7 +71,7 @@ export default function Cart() {
             <div className="App">
                 <Header countCartItems={cartItems.length}></Header>
                 <div className="row">
-                    <Main products={orders} onAdd={onAdd}></Main>
+                    <Main products={products} onAdd={onAdd}></Main>
                     <Basket
                         cartItems={cartItems}
                         onAdd={onAdd}

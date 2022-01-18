@@ -32,21 +32,23 @@ const data = {
     products: [
       {
         productId: '1',
-        productName: 'MacBook',
-        price: 1400,
-        image: 'https://picsum.photos/id/180/2400/1600',
+        productName: 'The Mind Connection',
+        price: 1400
       },
       {
         productId: '2',
-        productName: 'Old Car',
-        price: 2400,
-        image: 'https://picsum.photos/id/111/4400/2656',
+        productName: 'Atomic Habits',
+        price: 2400
       },
       {
         productId: '3',
-        productName: 'W Shoes',
-        price: 1000,
-        image: 'https://picsum.photos/id/21/3008/2008',
+        productName: 'The Happiness Hypothesis',
+        price: 1000
+      },
+      {
+        productId: '4',
+        productName: 'The Alchemist',
+        price: 1000
       }
     ]
   };

@@ -14,10 +14,14 @@ export default function Cart() {
 
     // product details
     const [userOrders, setUserOrders] = useState([]);
+    const [userBasket, setUserBasket] = useState([]);
+    const { orders } = userOrders;
+    const { products } = data;
+    const [cartItems, setCartItems] = useState([]);
 
     // Get user's orders based on user token
     useEffect(() => {
-        fetch('https://quiet-stream-93181.herokuapp.com/ecommerce/users/my_orders', {
+        fetch(`${ process.env.REACT_APP_API_URL }/ecommerce/users/my_orders`, {
             headers: {
                 Authorization: `Bearer ${localStorageToken}`
             }
@@ -26,10 +30,21 @@ export default function Cart() {
             .then(data => {
                 // localStorage.setItem('anokaba', JSON.stringify(data));
                 // console.log([data])
-                setUserOrders(data)
+                // setUserOrders(data)
+                setUserOrders(
+                <Main key={data._id} products={data} onAdd={onAdd}/>
+                )
+
+                setUserBasket(
+                    <Basket
+                        cartItems={cartItems}
+                        onAdd={onAdd}
+                        onRemove={onRemove}
+                    />
+                )
             })
         // end
-    }, [userOrders]);
+    }, [userOrders, userBasket]);
     // console.log(userOrders)
     
     
@@ -37,9 +52,7 @@ export default function Cart() {
     
 
     // Code Block for Cart
-    const { orders } = userOrders;
-    const { products } = data;
-    const [cartItems, setCartItems] = useState([]);
+    
     const onAdd = (product) => {
         const exist = cartItems.find((x) => x.productId === product.productId);
         if (exist) {
@@ -69,14 +82,16 @@ export default function Cart() {
     return (
         <Fragment>
             <div className="App">
-                <Header countCartItems={cartItems.length}></Header>
+                <Header countCartItems={cartItems.length}/>
                 <div className="row">
-                    <Main products={products} onAdd={onAdd}></Main>
-                    <Basket
+                    {userOrders}
+                    {userBasket}
+                    {/* <Main products={orders} onAdd={onAdd}/> */}
+                    {/* <Basket
                         cartItems={cartItems}
                         onAdd={onAdd}
                         onRemove={onRemove}
-                    ></Basket>
+                    ></Basket> */}
                 </div>
             </div>
         </Fragment>

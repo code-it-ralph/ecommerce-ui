@@ -10,7 +10,7 @@ export default function Book() {
 
     // Retrieve the product from the database upon initial render of the "Product" component
     useEffect(() => {
-        fetch('https://quiet-stream-93181.herokuapp.com/ecommerce/products/')
+        fetch(`${ process.env.REACT_APP_API_URL }/ecommerce/products/`)
         .then(res => res.json())
         .then(data => {
 

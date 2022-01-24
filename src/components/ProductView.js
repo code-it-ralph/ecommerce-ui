@@ -27,7 +27,7 @@ export default function CourseView() {
 
         e.preventDefault();
 
-        fetch(`https://quiet-stream-93181.herokuapp.com/ecommerce/users/checkout`, {
+        fetch(`${ process.env.REACT_APP_API_URL }/ecommerce/users/checkout`, {
             method: "POST",
             headers: {
                 "Content-type": "application/json",
@@ -64,7 +64,7 @@ export default function CourseView() {
     useEffect(() => {
         console.log(productId);
 
-        fetch(`https://quiet-stream-93181.herokuapp.com/ecommerce/products/${productId}`)
+        fetch(`${ process.env.REACT_APP_API_URL }/ecommerce/products/${productId}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);

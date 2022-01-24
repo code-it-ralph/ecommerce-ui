@@ -5,8 +5,6 @@ import { Container } from 'react-bootstrap';
 import Banner from '../components/Banner';
 
 
-
-
 export default function PageNotFound() {
 
     const errorData = {

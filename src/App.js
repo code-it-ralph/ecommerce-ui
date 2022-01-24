@@ -51,6 +51,42 @@ function App() {
     console.log(localStorage);
   }, [user])
 
+  useEffect(() => {
+
+		// console.log(user);
+
+		fetch(`${ process.env.REACT_APP_API_URL }/ecommerce/users/details`, {
+			headers: {
+				Authorization: `Bearer ${ localStorage.getItem('token') }`
+			}
+		})
+		.then(res => res.json())
+		.then(data => {
+
+			// Set the user states values with the user details upon successful login.
+			if (typeof data._id !== "undefined") {
+
+				setUser({
+					id: data._id,
+					isAdmin: data.isAdmin
+				});
+
+			// Else set the user states to the initial values
+			} else {
+
+				setUser({
+					id: null,
+					isAdmin: null
+				});
+
+			}
+
+		})
+
+    }, []);
+
+
+
     // order of components matter
   return (
     <UserProvider value={{ user, setUser, unsetUser }}>

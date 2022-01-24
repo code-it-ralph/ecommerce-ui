@@ -1,7 +1,11 @@
 import React from 'react';
+import { Redirect } from "react-router-dom";
 
 export default function Basket(props) {
 
+  function checkout() {
+    <Redirect to="/home" />
+  }
   
   const { cartItems, onAdd, onRemove } = props;
   const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
@@ -47,7 +51,7 @@ export default function Basket(props) {
             <hr />
 
             <div className="row">
-              <button onClick={() => alert('Bawal Utang!')}>
+              <button onClick={() => checkout()}>
                 Checkout
               </button>
             </div>

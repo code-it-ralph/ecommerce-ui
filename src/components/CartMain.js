@@ -10,9 +10,9 @@ export default function Main(props) {
       <h2>Products</h2>
       <div className="row">
         {
-          products.map((product) => (
-            <Product key={product.productId} product={product} onAdd={onAdd}></Product>
-          ))
+          // products.map((product) => (
+            <Product key={products.productId} product={products} onAdd={onAdd}/>
+          // ))
         }
       </div>
     </main>

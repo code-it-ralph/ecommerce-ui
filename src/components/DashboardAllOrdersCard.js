@@ -1,5 +1,5 @@
 /* Bootstrap & Styling */
-import { Form, Button, Container, Card } from 'react-bootstrap';
+import { Form, Button, Container, Card, Table } from 'react-bootstrap';
 
 import { useState, useEffect } from 'react';
 

@@ -85,7 +85,7 @@ export default function CourseView() {
                             <Card.Text>{description}</Card.Text>
                             <Card.Subtitle>Price: Php{`${price}`}</Card.Subtitle>
                             <Card.Text> </Card.Text>
-                            <Form.Group className="mb-4 col-4" style={{marginLeft: "35%", marginRight: "35%"}} controlId="quantiy">
+                            {/* <Form.Group className="mb-4 col-4" style={{marginLeft: "35%", marginRight: "35%"}} controlId="quantiy">
                                 <Form.Label>Quantity</Form.Label>
                                 <Form.Control
                                     type="number"
@@ -94,17 +94,17 @@ export default function CourseView() {
                                     onChange={e => setQuantity(e.target.value)}
                                     required
                                 />
-                            </Form.Group>
+                            </Form.Group> */}
                             {
                                 user.id !== null ?
                                     <div>
                                         <Button className='productBtn btn btn-secondary btn-block col-4' type="submit" variant="secondary" onClick={() => buy()}>Add to Cart</Button>
-                                        <Link className='productBtn btn btn-secondary col-4' to="/library">Cancel</Link>
+                                        <Link className='productBtn btn btn-secondary col-4' to="/library">Back</Link>
                                     </div>
                                     :
                                     <div>
                                         <Link className='productBtn btn btn-secondary btn-block col-4' to="/login">Login to Purchase</Link>
-                                        <Link className='productBtn btn btn-secondary btn-block col-4 mx-3' to="/library">Cancel</Link>
+                                        <Link className='productBtn btn btn-secondary btn-block col-4 mx-3' to="/library">Back</Link>
                                     </div>
                             }
 

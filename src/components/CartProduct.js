@@ -1,3 +1,24 @@
+import React from 'react';
+
+export default function Product(props) {
+
+  const { product, onAdd } = props;
+
+ 
+  
+  
+  return (
+    <div className='mt-3'>
+      <h3>{product.productName}</h3>
+      <div>&#8369;{product.price}</div>
+      <div>
+        <button onClick={() => onAdd(product)}>Add To Cart</button>
+      </div>
+    </div>
+  );
+}
+
+
 // import React from 'react';
 // import { Form, Button, Container, Card, Table } from 'react-bootstrap';
 // import { useState, useEffect } from 'react';
@@ -27,18 +48,3 @@
 //     </Container>
 //   )
 // };
-
-import React from 'react';
-
-export default function Product(props) {
-  const { product, onAdd } = props;
-  return (
-    <div>
-      <h3>{product.productName}</h3>
-      <div>&#8369;{product.price}</div>
-      <div>
-        <button onClick={() => onAdd(product)}>Add To Cart</button>
-      </div>
-    </div>
-  );
-}

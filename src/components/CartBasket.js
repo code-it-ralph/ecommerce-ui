@@ -1,9 +1,34 @@
 import React from 'react';
+import Swal from 'sweetalert2';
+import { useHistory } from 'react-router-dom';
 
 export default function Basket(props) {
+
+  const history = useHistory();
+
   const { cartItems, onAdd, onRemove } = props;
   const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
   const totalPrice = itemsPrice;
+
+  function checkOut() {
+
+
+    if (true) {
+      Swal.fire({
+        title: "Successful!",
+        icon: "success",
+        text: "Orders successfully checked-out."
+      })
+      history.push("/library");
+    }
+    else {
+      Swal.fire({
+        title: "Something went wrong.",
+        icon: "error",
+        text: "Please try again."
+      })
+    }
+  }
 
 
   return (
@@ -12,7 +37,7 @@ export default function Basket(props) {
       <div>
         {cartItems.length === 0 && <div>Cart is empty</div>}
         {cartItems.map((item) => (
-          <div key={item.id} className="row">
+          <div key={item.productName + item.purchasedOn} className="row">
             <div className="col-2">{item.productName}</div>
             <div className="col-2">
               <button onClick={() => onRemove(item)} className="remove">
@@ -31,7 +56,7 @@ export default function Basket(props) {
 
         {cartItems.length !== 0 && (
           <>
-            <hr/>          
+            <hr />
 
             <div className="row">
               <div className="col-2">
@@ -45,7 +70,7 @@ export default function Basket(props) {
             <hr />
 
             <div className="row">
-              <button onClick={() => alert('Implement Checkout!')}>
+              <button onClick={() => checkOut()}>
                 Checkout
               </button>
             </div>

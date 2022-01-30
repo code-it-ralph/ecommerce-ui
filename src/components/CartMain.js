@@ -1,3 +1,21 @@
+import React from 'react';
+import CartProduct from './CartProduct';
+
+export default function Main(props) {
+  const { products, onAdd } = props;
+  return (
+    <main className="block col-2">
+      <h3>List of Liked Items</h3>
+      <hr />
+      <div className="row">
+        {products.map((product) => (
+          <CartProduct key={product.productName + product.purchasedOn} product={product} onAdd={onAdd} />
+        ))}
+      </div>
+    </main>
+  );
+}
+
 // import React, { Fragment } from 'react';
 // import { Container } from 'react-bootstrap';
 // import { useState, useEffect } from 'react';
@@ -35,21 +53,3 @@
 //     </Fragment>
 //   );
 // }
-
-import React from 'react';
-import CartProduct from './CartProduct';
-
-export default function Main(props) {
-  const { products, onAdd } = props;
-  return (
-    <main className="block col-2">
-      <h3>List of added Items</h3>
-      <hr />
-      <div className="row">
-        {products.map((product) => (
-          <CartProduct key={product.productName + product.purchasedOn} product={product} onAdd={onAdd} />
-        ))}
-      </div>
-    </main>
-  );
-}

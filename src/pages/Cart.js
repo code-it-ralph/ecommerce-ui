@@ -2,12 +2,13 @@ import { Container, Row, Col } from 'react-bootstrap';
 import CartHeader from '../components/CartHeader';
 import CartMain from '../components/CartMain';
 import CartBasket from '../components/CartBasket';
+import CartApp from '../components/CartApp';
 
 export default function Cart() {
 
     return (
         <Container>
-            <Row>
+            {/* <Row>
                 <CartHeader />
             </Row>
 
@@ -19,7 +20,8 @@ export default function Cart() {
                 <Col>
                     <CartBasket />
                 </Col>
-            </Row>
+            </Row> */}
+            <CartApp />
         </Container>
     );
 };

@@ -1,9 +1,18 @@
 import { Container } from "react-bootstrap";
 
-export default function CartHeader() {
+export default function CartHeader(props) {
   return (
-    <Container className="block mt-3">
-      <h2>Your Cart</h2>
-    </Container>
+    <header className="block row">
+
+      <h1>Your Cart</h1>
+      <div>
+          Cart{' '}
+          {props.countCartItems ? 
+          (<button className="badge">{props.countCartItems}</button>)
+          :
+          ('')
+          }
+      </div>
+    </header>
   );
 };

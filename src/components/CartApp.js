@@ -2,11 +2,41 @@ import CartHeader from './CartHeader';
 import CartMain from './CartMain';
 import CartBasket from './CartBasket';
 import CartData from './CartData';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-function CartApp() {
+import React from 'react';
+import { Container } from 'react-bootstrap';
+// import CartProduct from './CartProduct';
 
-  const { products } = CartData;
+export default function CartApp() {
+
+  const token = localStorage.getItem('token');
+  const [products, setProducts] = useState([]);
+  const [orderedItems, setOrderedItems] = useState([]);
+
+
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_API_URL}/ecommerce/users/my_orders`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        setProducts(
+          data.orders.map(items => {
+            return (
+              //<CartProduct key={items.productName + items.purchasedOn} orderedProp={items}/>
+              items
+            );
+          })
+        )
+      })
+  }, []);
+
+
+  // const { products } = CartData;
   const [cartItems, setCartItems] = useState([]);
 
 
@@ -59,5 +89,3 @@ function CartApp() {
     </div>
   );
 }
-
-export default CartApp;

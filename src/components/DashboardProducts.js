@@ -13,7 +13,7 @@ export default function DashboardProducts() {
     // Retrieve the product from the database upon initial render of the "Product" component
     const fetchData = () => {
         
-        fetch(`${process.env.REACT_APP_API_URL}/ecommerce/products/all`)
+        fetch(`https://quiet-stream-93181.herokuapp.com/ecommerce/products/all`)
             .then(res => res.json())
             .then(data => {
 

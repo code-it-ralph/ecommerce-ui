@@ -1,20 +1,41 @@
-import React from 'react';
-import Product from './CartProduct';
+import React, { Fragment } from 'react';
+import { Container } from 'react-bootstrap';
+import { useState, useEffect } from 'react';
+import CartProduct from './CartProduct';
 
-export default function Main(props) {
+export default function CartMain() {
 
-  const { products, onAdd } = props;
+  const token = localStorage.getItem('token');
+  const [products, setProducts] = useState([]);
+  const [orderedItems, setOrderedItems] = useState([]);
+  const [quantity, setQuantity] = useState([]);
+  const [price, setPrice] = useState([]);
+
+
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_API_URL}/ecommerce/users/my_orders`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        setProducts(
+          data.orders.map(items => {
+            return (
+              <CartProduct key={items.productName + items.purchasedOn} orderedProp={items}/>
+            );
+          })
+        )
+      })
+  }, []);
+  
+
 
   return (
-    <main className="block col-2">
-      <h2>Products</h2>
-      <div className="row">
-        {
-          // products.map((product) => (
-            <Product key={products.productId} product={products} onAdd={onAdd}/>
-          // ))
-        }
-      </div>
-    </main>
+    <Fragment>
+      {products}
+    </Fragment>
   );
 }

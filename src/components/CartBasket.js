@@ -1,63 +1,10 @@
-import React from 'react';
-import { Redirect } from "react-router-dom";
-
-export default function Basket(props) {
-
-  function checkout() {
-    <Redirect to="/home" />
-  }
-  
-  const { cartItems, onAdd, onRemove } = props;
-  const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
-  const totalPrice = itemsPrice;
+import { Container } from "react-bootstrap";
 
 
+export default function CartBasket() {
   return (
-    <aside className="block col-1">
-      <h2>Cart Items</h2>
-      <div>
-        {cartItems.length === 0 && <div>Cart is empty</div>}
-        {cartItems.map((item) => (
-          <div key={item.productId} className="row">
-            <div className="col-2">{item.productName}</div>
-            <div className="col-2">
-              <button onClick={() => onRemove(item)} className="remove">
-                -
-              </button>{' '}
-              <button onClick={() => onAdd(item)} className="add">
-                +
-              </button>
-            </div>
-
-            <div className="col-2 text-right">
-              {item.qty} x Php{item.price.toFixed(2)}
-            </div>
-          </div>
-        ))}
-
-        {cartItems.length !== 0 && (
-          <>
-            <hr/>
-
-            <div className="row">
-              <div className="col-2">
-                <strong>Total Price</strong>
-              </div>
-              <div className="col-1 text-right">
-                <strong>Php {totalPrice.toFixed(2)}</strong>
-              </div>
-            </div>
-
-            <hr />
-
-            <div className="row">
-              <button onClick={() => checkout()}>
-                Checkout
-              </button>
-            </div>
-          </>
-        )}
-      </div>
-    </aside>
+    <Container className="block">
+      <h1>Basket</h1>
+    </Container>
   );
-}
+};

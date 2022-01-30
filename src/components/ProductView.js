@@ -16,22 +16,21 @@ export default function CourseView() {
 
     // The useParams hook allows us to retrieve the courseId passed via URL
     const { productId } = useParams();
+    const token = localStorage.getItem('token');
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState(0);
-    const [quantity, setQuantity] = useState()
+    const [quantity, setQuantity] = useState(1)
 
     // an Enroll Function to enroll a user to a specific course
-    function buy(e) {
+    function buy() {
 
-        e.preventDefault();
-
-        fetch(`${ process.env.REACT_APP_API_URL }/ecommerce/users/checkout`, {
-            method: "POST",
+        fetch(`${process.env.REACT_APP_API_URL}/ecommerce/users/checkout`, {
+            method: 'POST',
             headers: {
-                "Content-type": "application/json",
-                Authorization: `Bearer ${localStorage.getItem('token')}`
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 productId: productId,
@@ -64,7 +63,7 @@ export default function CourseView() {
     useEffect(() => {
         console.log(productId);
 
-        fetch(`${ process.env.REACT_APP_API_URL }/ecommerce/products/${productId}`)
+        fetch(`${process.env.REACT_APP_API_URL}/ecommerce/products/${productId}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -86,10 +85,10 @@ export default function CourseView() {
                             <Card.Text>{description}</Card.Text>
                             <Card.Subtitle>Price: Php{`${price}`}</Card.Subtitle>
                             <Card.Text> </Card.Text>
-                            <Form.Group className="mb-4" controlId="quantiy">
+                            <Form.Group className="mb-4 col-4" style={{marginLeft: "35%", marginRight: "35%"}} controlId="quantiy">
                                 <Form.Label>Quantity</Form.Label>
                                 <Form.Control
-                                    type="text"
+                                    type="number"
                                     placeholder="Enter Quantity"
                                     value={quantity}
                                     onChange={e => setQuantity(e.target.value)}
@@ -98,9 +97,15 @@ export default function CourseView() {
                             </Form.Group>
                             {
                                 user.id !== null ?
-                                    <Button className='productBtn' type="submit" variant="secondary" onSubmit={(e) => buy(e)}>Add to Cart</Button>
+                                    <div>
+                                        <Button className='productBtn btn btn-secondary btn-block col-4' type="submit" variant="secondary" onClick={() => buy()}>Add to Cart</Button>
+                                        <Link className='productBtn btn btn-secondary col-4' to="/library">Cancel</Link>
+                                    </div>
                                     :
-                                    <Link className='productBtn btn btn-secondary btn-block' to="/login">Login to Purchase</Link>
+                                    <div>
+                                        <Link className='productBtn btn btn-secondary btn-block col-4' to="/login">Login to Purchase</Link>
+                                        <Link className='productBtn btn btn-secondary btn-block col-4 mx-3' to="/library">Cancel</Link>
+                                    </div>
                             }
 
                         </Card.Body>

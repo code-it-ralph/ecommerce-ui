@@ -105,19 +105,6 @@ export default function ProductUpdate() {
     }, [productName, description, price])
 
 
-    // useEffect(() => {
-    //     if (productName1 === '' || productDescription === '' || price1 === '') {
-    //         setProductName1(name);
-    //         setProductDescription(description);
-    //         setPrice1(price);
-    //     }
-    // })
-
-
-
-
-
-
 
     return (
         <Container id="register-container" className="col-12 col-md-6 p-4 animate__animated animate__fadeIn">

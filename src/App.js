@@ -12,7 +12,6 @@ import { UserProvider } from './UserContext';
 import AppNavbar from './components/AppNavBar';
 import ProductView from './components/ProductView';
 import Footer from './components/Footer';
-import OrderDetails from './components/OrderDetails';
 import CreateProduct from './components/DashboardCreate';
 import UpdateProduct from './components/DashboardUpdate';
 import ProductUpdate from './components/DashboardUpdate';
@@ -101,7 +100,6 @@ function App() {
             <Route exact path="/logout" component={Logout} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/cart" component={Cart} />
-            <Route exact path="/orderdetails" component={OrderDetails} />
             <Route exact path="/admin" component={Admin} />
             <Route exact path="/createproduct" component={CreateProduct} />
             <Route exact path="/updateproduct" component={UpdateProduct} />

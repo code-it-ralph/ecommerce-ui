@@ -16,7 +16,7 @@ export default function CartApp() {
 
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/ecommerce/users/my_orders`, {
+    fetch(`https://quiet-stream-93181.herokuapp.com/ecommerce/users/my_orders`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

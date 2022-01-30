@@ -29,7 +29,7 @@ export default function ProductUpdate() {
     useEffect(() => {
         console.log(productId);
 
-        fetch(`${process.env.REACT_APP_API_URL}/ecommerce/products/${productId}`)
+        fetch(`https://quiet-stream-93181.herokuapp.com/ecommerce/products/${productId}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -48,7 +48,7 @@ export default function ProductUpdate() {
         e.preventDefault();
 
 
-        fetch(`${process.env.REACT_APP_API_URL}/ecommerce/products/${productId}`, {
+        fetch(`https://quiet-stream-93181.herokuapp.com/ecommerce/products/${productId}`, {
             method: 'PUT',
             headers: {
                 'Authorization': `Bearer ${token}`,

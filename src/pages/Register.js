@@ -38,7 +38,7 @@ export default function Register() {
 
         e.preventDefault();
 
-        fetch(`${ process.env.REACT_APP_API_URL }/ecommerce/users/checkemail`, {
+        fetch(`https://quiet-stream-93181.herokuapp.com/ecommerce/users/checkemail`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -62,7 +62,7 @@ export default function Register() {
 
                 }
                 else {
-                    fetch(`${ process.env.REACT_APP_API_URL }/ecommerce/users/register`, {
+                    fetch(`https://quiet-stream-93181.herokuapp.com/ecommerce/users/register`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'

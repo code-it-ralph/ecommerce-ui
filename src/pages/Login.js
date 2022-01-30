@@ -26,7 +26,7 @@ export default function Login(props) {
     function authenticate(e) {
         e.preventDefault();
 
-        fetch(`${ process.env.REACT_APP_API_URL }/ecommerce/users/login`, {
+        fetch(`https://quiet-stream-93181.herokuapp.com/ecommerce/users/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -66,7 +66,7 @@ export default function Login(props) {
     }
 
     const retrieveUserDetails = (token) => {
-        fetch(`${ process.env.REACT_APP_API_URL }/ecommerce/users/details`, {
+        fetch(`https://quiet-stream-93181.herokuapp.com/ecommerce/users/details`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }

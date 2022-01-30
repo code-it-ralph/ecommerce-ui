@@ -26,7 +26,7 @@ export default function CourseView() {
     // an Enroll Function to enroll a user to a specific course
     function buy() {
 
-        fetch(`${process.env.REACT_APP_API_URL}/ecommerce/users/checkout`, {
+        fetch(`https://quiet-stream-93181.herokuapp.com/ecommerce/users/checkout`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -63,7 +63,7 @@ export default function CourseView() {
     useEffect(() => {
         console.log(productId);
 
-        fetch(`${process.env.REACT_APP_API_URL}/ecommerce/products/${productId}`)
+        fetch(`https://quiet-stream-93181.herokuapp.com/ecommerce/products/${productId}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);

@@ -35,7 +35,7 @@ export default function CreateProduct() {
         e.preventDefault();
 
 
-        fetch(`${ process.env.REACT_APP_API_URL }/ecommerce/products/`, {
+        fetch(`https://quiet-stream-93181.herokuapp.com/ecommerce/products/`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`,

@@ -18,7 +18,7 @@ export default function DashboardProductCard({productProp, fetchData}) {
 
     function archiveProduct() {
 
-        fetch(`${process.env.REACT_APP_API_URL}/ecommerce/products/${_id}/archive`, {
+        fetch(`https://quiet-stream-93181.herokuapp.com/ecommerce/products/${_id}/archive`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json",
@@ -55,7 +55,7 @@ export default function DashboardProductCard({productProp, fetchData}) {
 
     function unarchiveProduct() {
 
-        fetch(`${process.env.REACT_APP_API_URL}/ecommerce/products/${_id}/unarchive`, {
+        fetch(`https://quiet-stream-93181.herokuapp.com/ecommerce/products/${_id}/unarchive`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json",

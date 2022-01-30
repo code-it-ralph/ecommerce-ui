@@ -8,7 +8,7 @@ export default function GetAllOrders() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch(`${ process.env.REACT_APP_API_URL }/ecommerce/users/orders`, {
+        fetch(`https://quiet-stream-93181.herokuapp.com/ecommerce/users/orders`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }
